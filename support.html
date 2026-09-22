@@ -117,7 +117,8 @@ function switchLang(l){
 }
 (function(){
   var l=null; try{l=localStorage.getItem('lang')}catch(e){}
-  switchLang(['uk','pl','ru'].indexOf(l)>=0?l:'en');
+  if(['uk','pl','ru','en'].indexOf(l)<0){var n=(navigator.language||'en').slice(0,2).toLowerCase(); l=['uk','pl','ru'].indexOf(n)>=0?n:'en'}
+  switchLang(l);
 })();
 </script>
 </body>
